@@ -1,6 +1,8 @@
-package dev.redtape.movies;
+package dev.redtape.movies.review;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.redtape.movies.movie.Movie;
+import dev.redtape.movies.review.Review;
+import dev.redtape.movies.review.ReviewRepository;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
@@ -8,10 +10,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ReviewService {
-    @Autowired
-    private ReviewRepository reviewRepository;
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    private final ReviewRepository reviewRepository;
+    private final MongoTemplate mongoTemplate;
+
+    public ReviewService(ReviewRepository reviewRepository, MongoTemplate mongoTemplate) {
+        this.reviewRepository = reviewRepository;
+        this.mongoTemplate = mongoTemplate;
+    }
+
     public Review createReview(String reviewBody, String imdbId) {
         Review review = reviewRepository.insert(new Review(reviewBody));
 

@@ -1,5 +1,6 @@
-package dev.redtape.movies;
+package dev.redtape.movies.review;
 
+import dev.redtape.movies.review.Review;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

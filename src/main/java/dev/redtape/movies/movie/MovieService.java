@@ -1,6 +1,7 @@
-package dev.redtape.movies;
+package dev.redtape.movies.movie;
 
-import org.bson.types.ObjectId;
+import dev.redtape.movies.movie.Movie;
+import dev.redtape.movies.movie.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +10,12 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
-    @Autowired
-    private MovieRepository movieRepository;
+
+    private final MovieRepository movieRepository;
+
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
     public List<Movie> allMovies() {
         return movieRepository.findAll();
     }

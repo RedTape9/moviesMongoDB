@@ -1,5 +1,6 @@
-package dev.redtape.movies;
+package dev.redtape.movies.movie;
 
+import dev.redtape.movies.review.Review;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
